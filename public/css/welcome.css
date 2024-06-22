@@ -1,17 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 body {
     font-family: 'Nunito', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5dc; /* Beige background */
+    background-color: #fcf6ca; 
 }
 
 .top {
-    background-color: #f5deb3; /* Lighter beige for top section */
+    background-color: #f5deb3; 
     padding: 10px 0;
+    border-bottom: #ff8c00 solid 3px;
 }
 
 .navigation {
-    max-width: 1200px;
+    max-width: 1400px;
+    height: 100px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -20,20 +25,60 @@ body {
 }
 
 #title {
+    font-family: "Playwrite NG Modern", Helvetica, sans-serif;
     font-size: 24px;
-    font-weight: 600;
-    color: #ff8c00; /* Dark orange */
+    padding: 10px;
+    font-weight: 800;
+    border: #ff8c00 solid 3px;
+    border-radius: 15px;
+    color: #ff8c00; 
     margin: 0;
 }
 
 .navigation a {
-    color: #ff8c00; /* Dark orange */
+    color: #ff8c00; 
+    font-size: 20px;
+    font-weight: 500;
     text-decoration: none;
-    font-size: 16px;
     margin: 0 15px;
     transition: color 0.3s ease;
 }
 
 .navigation a:hover {
-    color: #cc7000; /* Slightly darker shade of orange */
+    color: #fb5f0b;
+}
+
+.user {
+    border: #ff8c00 solid 1px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.user:hover {
+    background-color: rgba(255, 121, 37, 0.1);
+}
+
+.body h1 {
+    font-family: "Libre Baskerville", Helvetica, sans-serif;
+    font-size: 50px;
+    color: #ff8c00;
+    padding: 15px;
+    font-weight: 800;
+    border: #ff8c00 solid 3px;
+    background-color: rgba(247, 230, 204, 0.8);
+    border-radius: 15px;
+    position: absolute;
+    margin-left: 12%;
+    z-index: 2;
+}
+
+.body img {
+    height: 85%;
+    margin-top: 1%;
+    width: 80%;
+    border: #ff8c00 solid 3px;
+    margin-left: 10%;
+    position: absolute;
+    z-index: 1;
+    border-radius: 15px;
 }
