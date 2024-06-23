@@ -17,8 +17,4 @@ class Pet extends Model
     {
         return $this->hasMany(Task::class);
     }
-    public function posts()
-    {
-        return $this->hasMany(Blogpost::class);
-    }
 }

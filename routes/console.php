@@ -16,10 +16,8 @@ Artisan::command('MigrateInOrder', function () {
         '2024_06_20_132850_create_categories_table.php',
         '2024_06_20_132951_create_shelters_table.php',
         '2024_06_20_132857_create_pets_table.php',
-        '2024_06_20_132904_create_blogposts_table.php',
         '2024_06_20_132940_create_roles_table.php',
         '2024_06_20_132945_create_tasks_table.php',
-        '2024_06_20_132935_create_comments_table.php'
     ];
     foreach($migrations as $migration) {
         $basePath = 'database/migrations/';          

@@ -11,8 +11,7 @@
     <div class="top">
         <div class="navigation">
             <p id="title" >Animal Shelter Volunteer Hub<p>
-            <a href="{{ route('categories.index') }}">Categories</a>
-            <a href="{{ route('blogposts.index') }}">Blog</a>
+            <a href="{{ route('categories.index') }}">Browse our pet categories</a>
             <div class="auth-links">
                 @if (Route::has('login'))
                     @auth
@@ -25,10 +24,13 @@
                     @endauth
                 @endif
             </div>
+            <div>
+                <a class="FAQ" href="{{ route('FAQ') }}">FAQ</a>
+            </div>
         </div>
     </div>
     <div class="body">
-        <h1>Welcome to the Animal Shelter Volunteer Hub!</h1>
+        <h1>Welcome to our Animal Shelter Volunteer Hub!</h1>
         <img src="{{ asset('puppies-ccca1b0776bb47c0b61b2e8a52b9dd92.jpg') }}" alt="Animal Shelter">
     </div>
 </body>

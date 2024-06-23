@@ -12,9 +12,9 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\BlogPostController;
-use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\WelcomeController;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -65,7 +65,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/animals', [AnimalController::class, 'index'])->name('animals.index');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-Route::get('/blogposts', [BlogPostController::class, 'index'])->name('blogposts.index');
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
-Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
-
+Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
+Route::get('/FAQ', [FaqController::class, 'index'])->name('FAQ');
