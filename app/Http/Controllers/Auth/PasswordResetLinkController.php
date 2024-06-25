@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Validator;
+use App\Models\User; 
 use Illuminate\View\View;
+use Illuminate\Validation\Rules;
 
 class PasswordResetLinkController extends Controller
 {
@@ -25,20 +28,45 @@ class PasswordResetLinkController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'email' => ['required', 'email'],
-        ]);
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|string',
+            'secret_question' => 'required|string',
+            'secret_answer' => 'required|string'
+    ]);
 
-        // We will send the password reset link to this user. Once we have attempted
-        // to send the link, we will examine the response then see the message we
-        // need to show to the user. Finally, we'll send out a proper response.
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
+    if ($validator->fails()) {
+        return redirect()->route('password.request', $request->username)
+                         ->withErrors($validator)
+                         ->withInput();
+    }
 
-        return $status == Password::RESET_LINK_SENT
-                    ? back()->with('status', __($status))
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+        // Validate username, secret question, and answer here as needed
+        // Assuming you have the logic to verify the secret question and answer
+
+        // For example, you might retrieve user details based on username and validate the secret answer
+        // Replace this logic with your actual implementation
+        $user = User::where('username', $request->username)->first();
+
+        if (!$user || !$this->validateSecretAnswer($user, $request->secret_question, $request->secret_answer)) {
+            return redirect()->route('password.request')
+                ->withErrors(['username' => __('Invalid username or security question answer.')])
+                ->withInput();
+        }
+    }
+
+    /**
+     * Validate the secret answer against the stored user's answer.
+     *
+     * @param  \App\Models\User  $user
+     * @param  string  $question
+     * @param  string  $answer
+     * @return bool
+     */
+    protected function validateSecretAnswer($user, $question, $answer)
+    {
+        // Implement your logic to validate secret question and answer here
+        // Example:
+        return $user->secret_question === $question && $user->secret_answer === $answer;
     }
 }
+

@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Animal Shelter Volunteer Hub</title>
     <link rel="stylesheet" href="{{asset('css/welcome.css')}}">
@@ -12,18 +11,24 @@
         <div class="navigation">
             <p id="title" >Animal Shelter Volunteer Hub<p>
             <a href="{{ route('categories.index') }}">Browse our pet categories</a>
-            <div class="auth-links">
-                @if (Route::has('login'))
-                    @auth
-                        <a class="user" href="{{ url('/home') }}">Home</a>
-                    @else
+            @if (Route::has('login'))
+                @auth
+                    <div id="logout">
+                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="logout-button">Logout</button>
+                        </form>
+                    </div>
+                @else
+                    <div class="auth-links">
                         <a class="user" href="{{ route('login') }}">Login</a>
                         @if (Route::has('register'))
                             <a class="user" href="{{ route('register') }}">Register</a>
                         @endif
-                    @endauth
-                @endif
-            </div>
+                            <a class="user">Login with Google</a>
+                    </div>
+                @endauth
+            @endif
             <div>
                 <a class="FAQ" href="{{ route('FAQ') }}">FAQ</a>
             </div>

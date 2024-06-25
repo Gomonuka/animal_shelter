@@ -18,6 +18,8 @@ Artisan::command('MigrateInOrder', function () {
         '2024_06_20_132857_create_pets_table.php',
         '2024_06_20_132940_create_roles_table.php',
         '2024_06_20_132945_create_tasks_table.php',
+        '2024_06_25_131139_add_two_factor_columns_to_users_table.php',
+        '2024_06_25_131200_create_personal_access_tokens_table.php'
     ];
     foreach($migrations as $migration) {
         $basePath = 'database/migrations/';          

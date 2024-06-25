@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 body {
-    background-color: #f5f5dc; /* Beige background */
+    background-color: #f5f5dc; 
     font-family: 'Nunito', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 .faq-section {
-    background-color: #fff8dc; /* Light beige background */
-    border: 1px solid #ff8c00; /* Dark orange border */
+    background-color: #fff8dc; 
+    border: 1px solid #ff8c00; 
     border-radius: 8px;
     padding: 20px;
     margin: 100px;
@@ -16,7 +16,7 @@ body {
 }
 
 .faq-section h1, .faq-section h2 {
-    color: #cc7000; /* Darker orange */
+    color: #cc7000; 
 }
 
 .faq-section p {
@@ -24,9 +24,10 @@ body {
     margin: 10px 0;
 }
 
-.faq-section button {
-    background-color: #ff8c00; /* Dark orange button */
+a {
+    background-color: #ff8c00; 
     border: none;
+    text-decoration: none;
     color: white;
     padding: 10px 20px;
     font-size: 1rem;
@@ -34,6 +35,6 @@ body {
     cursor: pointer;
 }
 
-.faq-section button:hover {
-    background-color: #cc7000; /* Slightly darker orange on hover */
+a:hover {
+    background-color: #cc7000; 
 }

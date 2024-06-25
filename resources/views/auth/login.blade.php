@@ -1,12 +1,15 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
+    <title>Login</title>
 </head>
 <body>
     <form method="POST" action="{{ route('login') }}">
         @csrf
         <h1>Login to continue to use our members-only features!</h1>
-        <!-- Username -->
         <div>
             <label for="username" >Username</label><br>
             <input id="username" type="text" name="username" required autofocus />
@@ -20,11 +23,10 @@
             <label for="remember_me">Remember me</label>
         </div>
         <div>
-            @if (Route::has('password.request'))
-            <a id="forgot" href="{{ route('password.request') }}">Forgot your password?</a>
-            @endif
-            <br>
+            <a id="forgot" href="{{ route('password.request') }}">Forgot your password?</a><br>
             <button>Login</button>
         </div>
     </form>
 </body>
+</html>
+

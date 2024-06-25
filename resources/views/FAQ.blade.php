@@ -23,7 +23,7 @@
             <p><strong>Q: How can I become a volunteer?</strong></p>
             <p>A: To become a volunteer, you first need to register and then fill out an application form.</p>
 
-            <button onclick="window.location.href='{{ url('/') }}'">Return to Welcome Page</button>
+            <a href="{{ route('welcome') }}">Return to Welcome Page</a>
         </div>
     </div>
 </body>
