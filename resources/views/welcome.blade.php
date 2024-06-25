@@ -14,7 +14,7 @@
             @if (Route::has('login'))
                 @auth
                     <div id="logout">
-                        <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+                        <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="logout-button">Logout</button>
                         </form>
@@ -25,7 +25,7 @@
                         @if (Route::has('register'))
                             <a class="user" href="{{ route('register') }}">Register</a>
                         @endif
-                            <a class="user">Login with Google</a>
+                            <a class="user" href="{{ url('auth/google') }}">Login with Google</a>
                     </div>
                 @endauth
             @endif

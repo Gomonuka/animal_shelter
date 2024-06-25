@@ -88,5 +88,9 @@ button {
     padding: 10px;
 }
 button:hover {
-    background-color: rgba(255, 121, 37, 0.1);
+    background-color: rgba(255, 106, 13, 0.2);
+}
+
+.logout-button {
+    font-size: large;
 }

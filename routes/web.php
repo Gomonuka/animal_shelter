@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\NewPasswordController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,3 +31,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::get('reset-password/{token}/{username}', [NewPasswordController::class, 'create'])->name('password.reset');
+Route::put('reset-password', [NewPasswordController::class, 'store'])->name('password.update');

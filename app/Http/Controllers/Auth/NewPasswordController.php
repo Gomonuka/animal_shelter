@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Auth\Events\PasswordReset;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
 class NewPasswordController extends Controller
@@ -17,9 +14,13 @@ class NewPasswordController extends Controller
     /**
      * Display the password reset view.
      */
-    public function create(Request $request): View
+    public function create(Request $request, $token, $username): View
     {
-        return view('auth.forgot-password', ['request' => $request]);
+        return view('auth.reset-password', [
+            'request' => $request,
+            'token' => $token,
+            'username' => $username,
+        ]);
     }
 
     /**
@@ -29,30 +30,12 @@ class NewPasswordController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $validator = Validator::make($request->all(), [
-            'username' => ['required', 'string'],
-            'password' => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
-        ]);
+        $user = User::where('username', $request->username)->first();
+        $user->password = Hash::make($request->username);
+        $user->save();
 
-        if ($validator->fails()) {
-            return redirect()->route('password.reset', $request->username)
-                             ->withErrors($validator)
-                             ->withInput();
-        }
-
-        $status = Password::reset(
-            $request->only('username', 'password', 'password_confirmation'),
-            function ($user, $password) {
-                $user->forceFill([
-                    'password' => Hash::make($password)
-                ])->save();
-                event(new PasswordReset($user));
-            }
-        );
-
-        return $status == Password::PASSWORD_RESET
-                    ? redirect()->route('login')->with('status', 'Password has been reset!')
-                    : redirect()->route('password.reset', $request->username)->with('error', 'Password reset failed.');
+        return redirect()->route('login')->with('success', 'Password has been changed successfully!');
     }
 }
+
 

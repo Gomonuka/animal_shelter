@@ -35,8 +35,8 @@ class PasswordResetLinkController extends Controller
 
     if ($validator->fails()) {
         return redirect()->route('password.request', $request->username)
-                         ->withErrors($validator)
-                         ->withInput();
+            ->withErrors($validator)
+            ->withInput();
     }
 
         // Validate username, secret question, and answer here as needed

@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FaqController;
@@ -23,21 +24,17 @@ Route::middleware('guest')->group(function () {
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
-   // Route to display the forgot password form
-Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-->name('password.request');
+    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
+        ->name('password.request');
 
-// Route to handle the forgot password form submission and redirect to the reset password form
-Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-->name('password.email'); // This route handles the form submission and validation
+    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
+        ->name('password.email'); 
 
-// Route to display the reset password form
-Route::get('reset-password', [NewPasswordController::class, 'create'])
-->name('password.reset');
+    Route::get('reset-password', [NewPasswordController::class, 'create'])
+        ->name('password.reset/{token}/{username}');
 
-// Route to handle the reset password form submission
-Route::post('reset-password', [NewPasswordController::class, 'store'])
-->name('password.update');
+    Route::post('reset-password', [NewPasswordController::class, 'store'])
+        ->name('password.update');
 });
 
 Route::middleware('auth')->group(function () {
@@ -57,3 +54,6 @@ Route::get('/categories', [CategoryController::class, 'index'])->name('categorie
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/FAQ', [FaqController::class, 'index'])->name('FAQ');
+
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);

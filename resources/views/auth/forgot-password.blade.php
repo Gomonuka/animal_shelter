@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/forgot.css') }}">
 </head>
 <body>
-    <form method="POST" action="{{ route('password.reset') }}">
+    <form method="POST" action="{{ route('password.email') }}">
         <h1>Reset your forgotten password</h1>
         @csrf
             <div>

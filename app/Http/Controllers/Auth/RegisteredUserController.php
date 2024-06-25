@@ -34,6 +34,8 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', 'min:8', Rules\Password::defaults()],
+            'secret_question' => ['required', 'string', 'max:255'],
+            'secret_answer' => ['required', 'string', 'max:255'],
         ]));
 
         if ($validator->fails()) {
@@ -44,6 +46,8 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'username' => $request->username,
             'password' => Hash::make($request->password),
+            'secret_question' => $request->secret_question,
+            'secret_answer' => $request->secret_answer,
         ]);
 
         event(new Registered($user));

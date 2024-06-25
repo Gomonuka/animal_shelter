@@ -14,10 +14,16 @@
             <label for="username" >Username</label><br>
             <input id="username" type="text" name="username" required autofocus />
         </div>
+        @error('username')
+            <span class="error">{{ $message }}</span>
+        @enderror
         <div>
             <label for="password">Password</label><br>
             <input id="password" type="password" name="password" required autocomplete="current-password" />
         </div>
+        @error('password')
+            <span class="error">{{ $message }}</span>
+        @enderror
         <div>
             <input id="remember_me" type="checkbox" name="remember">
             <label for="remember_me">Remember me</label>
