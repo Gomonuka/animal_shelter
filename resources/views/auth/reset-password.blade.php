@@ -9,7 +9,7 @@
 <body>
     <div>
         <h1>Reset Password</div>
-            <form method="POST" action="{{ route('password.store') }}">
+            <form method="POST" action="{{ route('password.update') }}">
                 @csrf
                 <label for="username">Email</label>
                 <input id="username" type="username" name="username" value="{{ old('username', $request->username) }}" required autocomplete="username" autofocus>

@@ -23,17 +23,21 @@ Route::middleware('guest')->group(function () {
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
-    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-                ->name('password.request');
+   // Route to display the forgot password form
+Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
+->name('password.request');
 
-    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
-                ->name('password.email');
+// Route to handle the forgot password form submission and redirect to the reset password form
+Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
+->name('password.email'); // This route handles the form submission and validation
 
-    Route::get('forgot-password', [NewPasswordController::class, 'create'])
-                ->name('password.reset/{token}');
+// Route to display the reset password form
+Route::get('reset-password', [NewPasswordController::class, 'create'])
+->name('password.reset');
 
-    Route::post('forgot-password', [NewPasswordController::class, 'store'])
-                ->name('password.store');
+// Route to handle the reset password form submission
+Route::post('reset-password', [NewPasswordController::class, 'store'])
+->name('password.update');
 });
 
 Route::middleware('auth')->group(function () {

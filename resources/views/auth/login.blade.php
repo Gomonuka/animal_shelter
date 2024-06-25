@@ -23,7 +23,7 @@
             <label for="remember_me">Remember me</label>
         </div>
         <div>
-            <a id="forgot" href="{{ route('password.request') }}">Forgot your password?</a><br>
+            <a id="forgot" href="{{ route('password.email') }}">Forgot your password?</a><br>
             <button>Login</button>
         </div>
     </form>

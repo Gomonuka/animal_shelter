@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="{{ asset('css/forgot.css') }}">
 </head>
 <body>
-    <form method="POST" action="{{ route('password.update') }}">
+    <form method="POST" action="{{ route('password.reset') }}">
         <h1>Reset your forgotten password</h1>
         @csrf
-        <input type="hidden" name="token" value="{{ $request->route('token') }}">
             <div>
                 <label for="username">Username</label><br>
                 <input id="username" type="text" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
@@ -38,7 +37,7 @@
                 @enderror
             </div>
             <div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit">Submit</button>
             </div>
     </form>    
 </body>
