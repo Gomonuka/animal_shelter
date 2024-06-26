@@ -12,6 +12,7 @@ Route::get('/', function () {
 Route::resource('pets', AnimalController::class);
 Route::get('/pets', [AnimalController::class, 'index'])->name('pets.index');
 Route::get('/pets/search', [AnimalController::class, 'search'])->name('pets.search');
+Route::get('/pets/{id}', [AnimalController::class, 'show'])->name('pets.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
