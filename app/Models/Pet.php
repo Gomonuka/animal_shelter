@@ -13,8 +13,8 @@ class Pet extends Model
     {
         return $this->belongsTo(Shelter::class, 'shelters_id');
     }
-    public function tasks()
+    public function category()
     {
-        return $this->hasMany(Task::class);
+        return $this->belongsTo(Task::class);
     }
 }

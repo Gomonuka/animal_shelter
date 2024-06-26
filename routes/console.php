@@ -13,7 +13,6 @@ Artisan::command('MigrateInOrder', function () {
         '2024_06_20_132940_create_roles_table.php',
         '2024_06_25_131200_create_personal_access_tokens_table.php',
         '0001_01_01_000000_create_users_table.php',
-        '2024_06_25_131139_add_two_factor_columns_to_users_table.php',
         '0001_01_01_000001_create_cache_table.php',
         '0001_01_01_000002_create_jobs_table.php',
         '2024_06_20_132850_create_categories_table.php',

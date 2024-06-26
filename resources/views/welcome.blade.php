@@ -10,7 +10,7 @@
     <div class="top">
         <div class="navigation">
             <p id="title" >Animal Shelter Volunteer Hub<p>
-            <a href="{{ route('categories.index') }}">Browse our pet categories</a>
+            <a href="{{ route('pets.index') }}">Browse our pet categories</a>
             @if (Route::has('login'))
                 @auth
                     <div id="logout">

@@ -27,11 +27,11 @@ class DatabaseSeeder extends Seeder
         //Create 1 admin
         User::create([
             'name' => 'Juliana',
-            'password' => Hash::make('Govnosobaki'),
+            'password' => Hash::make('Gomonuka7'),
             'role_id' => 1,
             'username' => 'Gomonuka',
             'secret_question' => 'What is your favorite film?',
-            'secret_answer' => 'Govno',
+            'secret_answer' => 'Dune',
         ]);
         //Create 20 regular users
         User::factory()->count(50)->create();

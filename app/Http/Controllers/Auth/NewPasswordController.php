@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Illuminate\Auth\Events\PasswordReset;
 
 class NewPasswordController extends Controller
 {
@@ -31,9 +32,11 @@ class NewPasswordController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $user = User::where('username', $request->username)->first();
-        $user->password = Hash::make($request->username);
+        $user->password = $request->password;
+
         $user->save();
 
+        event(new PasswordReset($user));
         return redirect()->route('login')->with('success', 'Password has been changed successfully!');
     }
 }

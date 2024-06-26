@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fcf6ca;
+}
+
+h1 {
+    font-family: "Libre Baskerville", Helvetica, sans-serif;
+    font-size: 40px;
+    color: #ff8c00;
+    padding: 10px;
+    font-weight: 800;
+    border: #ff8c00 solid 3px;
+    background-color: rgba(247, 230, 204, 0.8);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(247, 230, 204, 0.8);
+    border: 3px solid #ff8c00;
+    border-radius: 15px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 18px;
+    color: #ff8c00;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ff8c00;
+    border-radius: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ff8c00;
+    background-color: transparent;
+    border: 2px solid #ff8c00;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: rgba(255, 106, 13, 0.2);
+}
+
+.pet {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(247, 230, 204, 0.8);
+    border: 3px solid #ff8c00;
+    border-radius: 15px;
+}
+
+.pet h2 {
+    font-size: 28px;
+    color: #ff8c00;
+    margin-bottom: 10px;
+}
+
+.pet p {
+    font-size: 18px;
+    color: #ff8c00;
+    margin-bottom: 5px;
+}

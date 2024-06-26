@@ -21,7 +21,7 @@ class PetFactory extends Factory
         $category = Category::inRandomOrder()->first();
 
         return [
-            'PetName' => $this->faker->name,
+            'PetName' => $this->faker->firstName(),
             'shelter_id' => $shelter->id,
             'category_id' => $category->id,
             'Age' => $this->faker->numberBetween(1, 20),

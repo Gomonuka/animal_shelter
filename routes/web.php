@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -7,6 +8,10 @@ use App\Http\Controllers\Auth\NewPasswordController;
 Route::get('/', function () {
     return view('welcome');
 })->middleware(['auth', 'verified'])->name('welcome');
+
+Route::resource('pets', AnimalController::class);
+Route::get('/pets', [AnimalController::class, 'index'])->name('pets.index');
+Route::get('/pets/search', [AnimalController::class, 'search'])->name('pets.search');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
