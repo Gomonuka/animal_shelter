@@ -14,6 +14,15 @@
         <p>Category: {{ $categories[$pet->category_id-1]->CategoryName }}</p>
         <p>Breed: {{ $pet->Breed }}</p>
         <p>Description: {{ $pet->Description }}</p>
+        @if (Gate::allows('update-pet', Auth::user()))
+            <a href="{{ route('pets.edit', ['id' => $pet->id]) }}">Edit Pet</a>
+            <form action="{{ route('pets.destroy', ['id' => $pet->id]) }}" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit">Delete</button>
+            </form>
+            <br>
+        @endif
         <a href="{{ route('pets.index') }}">Return to the Catalogue</a>
     </div>
 </body>

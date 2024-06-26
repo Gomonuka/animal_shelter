@@ -28,6 +28,9 @@
 
         <button onclick="filterPets()">Search</button>
     </div>
+    @if (Gate::allows('update-pet', Auth::user()))
+    <a class="addPet" href="{{ route('pets.create') }}">Add a New Pet</a>
+    @endif
     <a class="return" href="{{ route('welcome') }}">Return to Welcome Page</a>
     <div class="pet-grid">
         @foreach ($pets as $pet)

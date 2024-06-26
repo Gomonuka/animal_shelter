@@ -28,7 +28,7 @@ h1 {
     text-align: center;
 }
 
-.return {
+.return, .addPet {
     margin-bottom: 20px;
     margin-top: 20px;
     margin-left: 100px;

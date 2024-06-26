@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Pet;
+use App\Models\Shelter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Validator;
 
 class AnimalController extends Controller
 {
@@ -63,5 +65,81 @@ class AnimalController extends Controller
             $randomImage = Arr::random($dogImages);
         }
             return view('pets.show', compact('pet', 'categories', 'randomImage'));
+    }
+    public function create()
+    {
+        $categories = Category::all();
+        $shelters = Shelter::all();
+        return view('pets.create', compact('categories'), compact('shelters'));
+    }
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'PetName' => 'required|string|max:255',
+            'shelter_id' => 'required|exists:shelters,id',
+            'category_id' => 'required|exists:categories,id',
+            'Age' => 'required|integer',
+            'Description' => 'required|string',
+            'Breed' => 'required|string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('pets.create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $pet = new Pet();
+        $pet->PetName = $request->PetName;
+        $pet->shelter_id = $request->shelter_id;
+        $pet->category_id = $request->category_id;
+        $pet->Age = $request->Age;
+        $pet->Description = $request->Description;
+        $pet->Breed = $request->Breed;
+        $pet->save();
+
+        return redirect()->route('pets.show', $pet->id);
+    }
+    public function edit(string $id)
+    {
+        $pet = Pet::findOrFail($id);
+        $shelters = Shelter::all();
+        $categories = Category::all();
+    
+        return view('pets.edit', compact('pet', 'shelters', 'categories'));
+    }
+    public function update(Request $request, string $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'PetName' => 'required|string|max:255',
+            'shelter_id' => 'required|exists:shelters,id',
+            'category_id' => 'required|exists:categories,id',
+            'Age' => 'required|integer',
+            'Description' => 'required|string',
+            'Breed' => 'required|string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('pets.edit', $id)
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $pet = Pet::findOrFail($id);
+        $pet->PetName = $request->PetName;
+        $pet->shelter_id = $request->shelter_id;
+        $pet->category_id = $request->category_id;
+        $pet->Age = $request->Age;
+        $pet->Description = $request->Description;
+        $pet->Breed = $request->Breed;
+        $pet->update();
+
+        return redirect()->route('pets.show', $pet->id);
+    }
+    public function destroy(string $id)
+    {
+        $pet = Pet::findOrFail($id);
+        $pet->delete();
+
+        return redirect()->route('pets.index');
     }
 }
