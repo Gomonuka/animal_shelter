@@ -23,7 +23,6 @@ class DatabaseSeeder extends Seeder
         Role::create(['RoleName' => 'Admin']);
         Role::create(['RoleName' => 'GoogleUser']);
         Role::create(['RoleName' => 'User']);
-        Role::create(['RoleName' => 'Volunteer']);
         //Create 1 admin
         User::create([
             'name' => 'Juliana',
@@ -46,7 +45,5 @@ class DatabaseSeeder extends Seeder
         Shelter::create(['ShelterName' => 'North-West Haven']);
         //30 Pets created with a factory 
         Pet::factory()->count(30)->create();
-        //30 Tasks
-        Task::factory()->count(30)->create();
     }
 }

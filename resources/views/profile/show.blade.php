@@ -14,8 +14,7 @@
             <p><strong>{{ __('messages.username') }}</strong><br> {{ $user->username }}</p>
             @if ($user->role_id == 1) <p><strong>{{ __('messages.role') }}</strong><br> Admin </p>
             @elseif ($user->role_id == 2) <p><strong>{{ __('messages.role') }}</strong><br> GoogleUser </p>
-            @elseif ($user->role_id == 3) <p><strong>{{ __('messages.role') }}</strong><br> User </p>
-            @else ($user->role_id == 4) <p><strong>{{ __('messages.role') }}</strong><br> Volunteer </p>
+            @else ($user->role_id == 3) <p><strong>{{ __('messages.role') }}</strong><br> User </p>
             @endif
         </div>
         <form action="{{ route('profile.picture.upload') }}" method="POST" enctype="multipart/form-data">

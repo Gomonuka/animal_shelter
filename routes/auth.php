@@ -6,11 +6,8 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\AnimalController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FaqController;
-use App\Http\Controllers\TaskController;
 use App\Http\Controllers\WelcomeController;
 
 Route::middleware('guest')->group(function () {
@@ -50,10 +47,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/animals', [AnimalController::class, 'index'])->name('animals.index');
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
-Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 Route::get('/welcome', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/FAQ', [FaqController::class, 'index'])->name('FAQ');
-
-Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
-Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);

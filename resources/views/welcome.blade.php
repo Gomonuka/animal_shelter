@@ -31,7 +31,6 @@
                     @endif
                     @if (Route::has('register'))
                         <a class="user" href="{{ route('register') }}">{{ __('messages.register') }}</a>
-                        <a class="user" href="{{ url('auth/google') }}">{{ __('messages.google') }}</a>
                     @endif 
                     </div>
                 @endauth

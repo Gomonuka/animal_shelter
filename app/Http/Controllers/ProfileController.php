@@ -39,8 +39,9 @@ class ProfileController extends Controller
         $imageName = time() . '_' . $image->getClientOriginalName();
         $image->storeAs('public/profile_pictures', $imageName); 
         $user->profile_picture = 'storage/profile_pictures/' . $imageName; 
-        $user->save();
     }
+    /** @var \App\Models\User $user **/
+    $user->save();
 
     return redirect()->back()->with('success', 'Profile picture uploaded successfully.');
 }
