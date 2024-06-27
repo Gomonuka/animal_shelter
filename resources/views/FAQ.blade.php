@@ -9,21 +9,18 @@
 <body>
     <div class="container">
         <div class="faq-section">
-            <h1>Frequently Asked Questions</h1>
-            <h2>How to Use the App</h2>
-            <p><strong>Q: What can I do as an unregistered user?</strong></p>
-            <p>A: You can view all animals available for adoption, but cannot apply to adopt them.</p>
+            <h1>{{ __('messages.frequently') }}</h1>
+            <h2>{{ __('messages.how') }}</h2>
+            <p><strong>{{ __('messages.q1') }}</strong></p>
+            <p>{{ __('messages.a1') }}</p>
 
-            <p><strong>Q: How do I view different categories of animals?</strong></p>
-            <p>A: To view different categories of animals, click on the "Categories" link in the navigation bar.</p>
+            <p><strong>{{ __('messages.q2') }}</strong></p>
+            <p>{{ __('messages.a2') }}.</p>
 
-            <p><strong>Q: How do I register or login?</strong></p>
-            <p>A: To register or login, click on the respective "Register" or "Login" link in the navigation bar.</p>
+            <p><strong>{{ __('messages.q3') }}</strong></p>
+            <p>{{ __('messages.a3') }}</p>
 
-            <p><strong>Q: How can I become a volunteer?</strong></p>
-            <p>A: To become a volunteer, you first need to register and then fill out an application form.</p>
-
-            <a href="{{ route('welcome') }}">Return to Welcome Page</a>
+            <a href="{{ route('welcome') }}">{{ __('messages.return') }}</a>
         </div>
     </div>
 </body>

@@ -26,13 +26,14 @@ body {
 
 #title {
     font-family: "Playwrite NG Modern", Helvetica, sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     padding: 10px;
     font-weight: 800;
     border: #ff8c00 solid 3px;
     border-radius: 15px;
     color: #ff8c00; 
     margin: 0;
+    text-align: center;
 }
 
 .navigation a {
@@ -42,6 +43,7 @@ body {
     text-decoration: none;
     margin: 0 15px;
     transition: color 0.3s ease;
+    text-align: center;
 }
 
 .navigation a:hover {
@@ -60,7 +62,7 @@ body {
 
 .body h1 {
     font-family: "Libre Baskerville", Helvetica, sans-serif;
-    font-size: 50px;
+    font-size: 40px;
     color: #ff8c00;
     padding: 15px;
     font-weight: 800;

@@ -9,9 +9,9 @@
 <body>
     <form method="POST" action="{{ route('register') }}">
     @csrf
-        <h1>Register to become a part of a good cause!</h1>
+        <h1>{{ __('messages.cause') }}</h1>
             <div>
-                <label for="name">Name</label><br>
+                <label for="name">{{ __('messages.name') }}</label><br>
                 <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus/>
             </div>
             @error('name')
@@ -20,7 +20,7 @@
                 </span>
             @enderror
             <div>
-                <label for="username">Username</label><br>
+                <label for="username">{{ __('messages.username') }}</label><br>
                 <input id="username" type="text" name="username" value="{{ old('username') }}" required/>
             </div>
             @error('username')
@@ -29,7 +29,7 @@
                 </span>
             @enderror
             <div>
-                <label for="password">Password</label><br>
+                <label for="password">{{ __('messages.password') }}</label><br>
                 <input id="password" type="password" name="password" value="{{ old('password') }}" required autocomplete="new-password"/>
             </div>
             @error('password')
@@ -38,11 +38,11 @@
                 </span>
             @enderror
             <div>
-                <label for="password-confirmation">Confirm Your Password</label><br>
+                <label for="password-confirmation">{{ __('messages.confirm') }}</label><br>
                 <input id="password-confirmation" type="password" name="password_confirmation" value="{{ old('password') }}" required>
             </div>
             <div>
-            <label for="secret_question">Secret Question (you will need this in case of forgetting your password)</label><br>
+            <label for="secret_question">{{ __('messages.question') }}</label><br>
                 <select id="secret_question" name="secret_question" required>
                     <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
                     <option value="What city were you born in?">What city were you born in?</option>
@@ -51,12 +51,12 @@
                 </select>
             </div>
             <div>
-                <label for="secret_answer">Answer</label><br>
+                <label for="secret_answer">{{ __('messages.answer') }}</label><br>
                 <input id="secret_answer" type="text" name="secret_answer" required>
             </div>
             <div>
-                <button action="submit">Register</button><br><br>
-                <a href="{{ route('login') }}">Already have an account?</a>
+                <button action="submit">{{ __('messages.register') }}</button><br><br>
+                <a href="{{ route('login') }}">{{ __('messages.already') }}</a>
             </div>
         </form>
 </body>

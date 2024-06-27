@@ -9,16 +9,16 @@
 <body>
     <form method="POST" action="{{ route('login') }}">
         @csrf
-        <h1>Login to continue to use our members-only features!</h1>
+        <h1>{{ __('messages.features') }}</h1>
         <div>
-            <label for="username" >Username</label><br>
+            <label for="username" >{{ __('messages.username') }}</label><br>
             <input id="username" type="text" name="username" required autofocus />
         </div>
         @error('username')
             <span class="error">{{ $message }}</span>
         @enderror
         <div>
-            <label for="password">Password</label><br>
+            <label for="password">{{ __('messages.password') }}</label><br>
             <input id="password" type="password" name="password" required autocomplete="current-password" />
         </div>
         @error('password')
@@ -26,11 +26,11 @@
         @enderror
         <div>
             <input id="remember_me" type="checkbox" name="remember">
-            <label for="remember_me">Remember me</label>
+            <label for="remember_me">{{ __('messages.remember') }}</label>
         </div>
         <div>
-            <a id="forgot" href="{{ route('password.email') }}">Forgot your password?</a><br>
-            <button>Login</button>
+            <a id="forgot" href="{{ route('password.email') }}">{{ __('messages.forgot') }}</a><br>
+            <button>{{ __('messages.login') }}</button>
         </div>
     </form>
 </body>

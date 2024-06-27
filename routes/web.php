@@ -4,6 +4,7 @@ use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\LanguageController;
 
     Route::resource('pets', AnimalController::class);
     Route::get('/pets', [AnimalController::class, 'index'])->name('pets.index');
@@ -33,6 +34,8 @@ Route::middleware(['web'])->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('register', [RegisteredUserController::class, 'store']);
 });
+
+Route::get('/locale/{lang}', [LanguageController::class, 'setLocale'])->name('setLocale');
 
 require __DIR__.'/auth.php';
 

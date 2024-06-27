@@ -7,9 +7,9 @@
     <title>Pet Catalogue</title>
 </head>
 <body>
-    <h1>Browse all animals available for adoption!</h1>
+    <h1>{{ __('messages.adoption') }}</h1>
     <div class="filters">
-        <label for="category">Category:</label>
+        <label for="category">{{ __('messages.category') }}</label>
         <select id="category">
             <option value="">All</option>
             @foreach ($categories as $category)
@@ -17,29 +17,29 @@
             @endforeach
         </select>
 
-        <label for="age">Age:</label>
+        <label for="age">{{ __('messages.age') }}</label>
         <input type="number" id="age">
 
-        <label for="breed">Breed:</label>
+        <label for="breed">{{ __('messages.breed') }}</label>
         <input type="text" id="breed">
 
-        <label for="name">Name:</label>
+        <label for="name">{{ __('messages.name') }}</label>
         <input type="text" id="name">
 
-        <button onclick="filterPets()">Search</button>
+        <button onclick="filterPets()">{{ __('messages.search') }}</button>
     </div>
     @if (Gate::allows('update-pet', Auth::user()))
-    <a class="addPet" href="{{ route('pets.create') }}">Add a New Pet</a>
+    <a class="addPet" href="{{ route('pets.create') }}">{{ __('messages.add') }}</a>
     @endif
-    <a class="return" href="{{ route('welcome') }}">Return to Welcome Page</a>
+    <a class="return" href="{{ route('welcome') }}">{{ __('messages.return') }}</a>
     <div class="pet-grid">
         @foreach ($pets as $pet)
         <div class="pet-card" data-category="{{ $pet->category_id }}" data-age="{{ $pet->Age }}" data-breed="{{ $pet->Breed }}" data-name="{{ $pet->PetName }}">
             <h2><a href="{{ route('pets.show', $pet->id) }}">{{ $pet->PetName }}</a></h2>
-            <p>Category: {{ $categories[$pet->category_id-1]->CategoryName }}</p>
-            <p>Age: {{ $pet->Age }}</p>
-            <p>Breed: {{ $pet->Breed }}</p>
-            <p>Description: {{ $pet->Description }}</p>
+            <p>{{ __('messages.category') }} {{ $categories[$pet->category_id-1]->CategoryName }}</p>
+            <p>{{ __('messages.age') }} {{ $pet->Age }}</p>
+            <p>{{ __('messages.breed') }} {{ $pet->Breed }}</p>
+            <p>{{ __('messages.description') }} {{ $pet->Description }}</p>
         </div>
         @endforeach
     </div><br><br>

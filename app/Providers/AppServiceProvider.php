@@ -18,5 +18,6 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('update-pet', function (User $user) {
             return $user->role_id === 1;
         });
+        \Carbon\Carbon::setLocale(config('app.locale'));
     }
 }
