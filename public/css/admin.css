@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 100px;
+    padding: 0;
+    background-color: #feedd5;
+}
+
+.return {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
+    background-color: #ff8c00;
+    color: #ffdb9c;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.user-grid {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+h1 {
+    font-family: "Libre Baskerville", Helvetica, sans-serif;
+    font-size: 40px;
+    color: #ff8c00;
+    padding: 10px;
+    font-weight: 800;
+    border: #ff8c00 solid 3px;
+    background-color: rgba(247, 230, 204, 0.8);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+div {
+    background-color: #f7dbdb;
+    border: 2px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+button {
+    background-color: #ff8c00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #fb5f0b;
+}

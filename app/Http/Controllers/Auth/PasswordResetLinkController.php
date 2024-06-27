@@ -66,8 +66,6 @@ class PasswordResetLinkController extends Controller
      */
     protected function validateSecretAnswer($user, $question, $answer)
     {
-        // Implement your logic to validate secret question and answer here
-        // Example:
         return $user->secret_question === $question && $user->secret_answer === $answer;
     }
 }

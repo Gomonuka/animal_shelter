@@ -43,5 +43,9 @@ return [
     "q2" => "Q: How do I view different categories of animals?",
     "a2" => "A: To view different categories of animals, click on the Categories link in the navigation bar.",
     "q3" => "Q: How do I register or login?",
-    "a3" => "A: To register or login, click on the respective Register or Login link in the navigation bar."
+    "a3" => "A: To register or login, click on the respective Register or Login link in the navigation bar.",
+    "user" => "User:",
+    "dashboard" => "Admin Dashboard",
+    "promote" => "Promote to Admin",
+    "demote" => "Demote from Admin"
 ];

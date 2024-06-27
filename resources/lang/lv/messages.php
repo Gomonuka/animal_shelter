@@ -43,5 +43,9 @@ return [
     "q2" => "J: Kā apskatīt dažādas dzīvnieku kategorijas?",
     "a2" => "A: Lai skatītu dažādas dzīvnieku kategorijas, navigācijas joslā noklikšķiniet uz saites kategorijas.",
     "q3" => "J: Kā reģistrēties vai pieteikties?",
-    "a3" => "A: Lai reģistrētos vai pieteiktos, navigācijas joslā noklikšķiniet uz attiecīgās saites reģistrēt vai pieteikties."
+    "a3" => "A: Lai reģistrētos vai pieteiktos, navigācijas joslā noklikšķiniet uz attiecīgās saites reģistrēt vai pieteikties.",
+    "user" => "Lietotājs:",
+    "dashboard" => "Administrēšanas infopanelis",
+    "promote" => "Padarīt par Administrātoru",
+    "demote" => "Pazemināt no Administratora"
 ];

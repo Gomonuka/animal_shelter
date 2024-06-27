@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\AdminController;
 
     Route::resource('pets', AnimalController::class);
     Route::get('/pets', [AnimalController::class, 'index'])->name('pets.index');
@@ -37,6 +38,11 @@ Route::middleware(['web'])->group(function () {
 
 Route::get('/locale/{lang}', [LanguageController::class, 'setLocale'])->name('setLocale');
 
+Route::get('/admin', [AdminController::class, 'index'])->name('adminDashboard');
+Route::put('/admin/promote', [AdminController::class, 'promote'])->name('admin.promote');
+Route::put('/admin/demote', [AdminController::class, 'demote'])->name('admin.demote');
+
+
 require __DIR__.'/auth.php';
 
 Route::middleware([
@@ -48,5 +54,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
 Route::get('reset-password/{token}/{username}', [NewPasswordController::class, 'create'])->name('password.reset');
 Route::put('reset-password', [NewPasswordController::class, 'store'])->name('password.update');

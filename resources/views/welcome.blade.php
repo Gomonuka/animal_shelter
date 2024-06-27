@@ -43,6 +43,9 @@
             </div>
         </div>
     </div>
+    @if (Gate::allows('update-pet', Auth::user()))
+        <a class="admin" href="{{ route('adminDashboard') }}">{{ __('messages.dashboard') }}</a>
+    @endif
     <div class="body">
         <h1>{{ __('messages.greeting') }}</h1>
         <img src="{{ asset('puppies-ccca1b0776bb47c0b61b2e8a52b9dd92.jpg') }}" alt="Animal Shelter">

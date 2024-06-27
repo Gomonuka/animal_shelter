@@ -13,8 +13,4 @@ class Shelter extends Model
     {
         return $this->hasMany(Pet::class);
     }
-    public function tasks()
-    {
-        return $this->hasMany(Task::class);
-    }
 }

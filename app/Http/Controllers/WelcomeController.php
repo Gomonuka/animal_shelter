@@ -23,7 +23,6 @@ class WelcomeController extends Controller
             return view('welcome', compact('user'));
         } 
         else {
-            // Handle case where user is not authenticated
             abort(403, 'Unauthorized action.');
         }
     }
